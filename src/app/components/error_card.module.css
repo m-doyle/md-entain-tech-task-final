@@ -1,0 +1,17 @@
+.error_card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    background-color: var(--colour-light);
+    border: 2px solid var(--colour-accent);
+    width: 100%;
+    min-height: 4rem;
+    padding: 1rem 1rem;
+    gap: 0.5rem;
+}
+.error_card > button {
+    cursor: pointer;
+}

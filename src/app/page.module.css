@@ -1,0 +1,33 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--colour-bg);
+}
+
+.page_wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 32rem;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    padding-bottom: 1rem;
+    border: 1px solid var(--colour-accent);
+}
+
+.header_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--colour-accent);
+    width: 100%;
+    height: 3rem;
+}
+
+.header_wrapper > h3 {
+    color: var(--colour-light);
+}
