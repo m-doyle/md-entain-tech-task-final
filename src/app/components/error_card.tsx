@@ -13,8 +13,8 @@ type Props = {
 };
 
 /**
- * Error card will display whatever message is passed as well as an optional
- * 'Try again' button which will fetch new races.
+ * Error card will display a message as well as an optional
+ * 'Try again' button which can fetch new races.
  */
 const _ErrorCard = ({ errorMessage, tryAgain, updateRaces }: Props) => {
     return (

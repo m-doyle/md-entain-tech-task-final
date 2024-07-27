@@ -1,5 +1,5 @@
 import axios from "axios";
-import { RaceSummaries, RacingCategory } from "../utils";
+import { buildNextToGoUrl, RaceSummaries, RacingCategory } from "../utils";
 import { selectFilteredRaces } from "./selector";
 import { ThunkAction, ThunkDispatch } from "redux-thunk";
 import { State } from "./state";
@@ -118,9 +118,7 @@ export const fetchRaces = (
     ) {
         dispatch(fetchRacesRequest(setLoading));
         try {
-            const response = await axios.get(
-                "https://api.neds.com.au/rest/v1/racing/?method=nextraces&count=10"
-            );
+            const response = await axios.get(buildNextToGoUrl(20));
             const races: RaceSummaries = Object.values(
                 response.data.data.race_summaries
             );

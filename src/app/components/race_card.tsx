@@ -37,7 +37,7 @@ const _RaceCard = ({ deleteRace, raceData }: Props) => {
     );
     const [overtime, setOvertime] = useState<boolean>(false);
 
-    // Use start time to calculate live countdown timer
+    // Live countdown timer - updates every second
     useEffect(() => {
         const updateRemainingTime = () => {
             let operator = "";

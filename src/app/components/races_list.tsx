@@ -17,12 +17,14 @@ type Props = {
     loading: boolean;
     races: RaceSummaries;
     category: RacingCategory;
+    error: string | null;
 };
 
 /**
- * Display races to user if there are any. Else will show an error card.
+ * Displays list of race cards to user if they are present.
+ * Else will show an error card with retry button.
  */
-const _RacesList = ({ loading, races, category }: Props) => {
+const _RacesList = ({ loading, races, category, error }: Props) => {
     // Return null on first render, so the client and server match
     const [hydrated, setHydrated] = useState(false);
     useEffect(() => {
@@ -32,20 +34,31 @@ const _RacesList = ({ loading, races, category }: Props) => {
         return <ErrorCard tryAgain={false} errorMessage={"Loading..."} />;
     }
 
+    // If no races found for a category, display 'Try again' error component.
+    // If error, display error message.
+    if (races.length == 0) {
+        const displayMessage =
+            error == null
+                ? `Unable to find any ${getCategoryName(category)} races...`
+                : "Unexpected error!";
+        return (
+            <div className={styles.races_list_wrapper}>
+                <ErrorCard errorMessage={displayMessage} tryAgain={true} />
+            </div>
+        );
+    }
+
+    // Return race list as normal
     return (
         <div className={styles.races_list_wrapper}>
-            {races.length == 0 ? (
-                <ErrorCard
-                    errorMessage={`Unable to find any ${getCategoryName(
-                        category
-                    )} races...`}
-                    tryAgain={true}
-                />
-            ) : (
-                races.map((race: RaceSummary, index: number) => {
-                    return <RaceCard key={index} raceData={race} />;
-                })
-            )}
+            {races.map((race: RaceSummary, index: number) => {
+                return (
+                    <RaceCard
+                        key={`${index}_${race.race_id}`}
+                        raceData={race}
+                    />
+                );
+            })}
         </div>
     );
 };
@@ -54,6 +67,7 @@ const mapStateToProps = (state: State) => ({
     loading: state.loading,
     races: state.racesToDisplay,
     category: state.category,
+    error: state.error,
 });
 
 const RacesList = connect(mapStateToProps)(_RacesList);
