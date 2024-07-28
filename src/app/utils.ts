@@ -28,12 +28,12 @@ export enum RacingCategory {
 // Path builder which could be extended / modified as necessary
 // e.g. dev / uat / prod environments
 export function buildNextToGoUrl(count: number): string {
-    const baseUrl = "https://api.neds.com.au/rest/v1/racing/";
+    const racingBaseUrl = "https://api.neds.com.au/rest/v1/racing/";
     const queryParams = new URLSearchParams({
         method: "nextraces",
         count: count.toString(),
     });
-    return `${baseUrl}?${queryParams.toString()}`;
+    return `${racingBaseUrl}?${queryParams.toString()}`;
 }
 
 // Returns the category name given the category UUID.
