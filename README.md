@@ -123,12 +123,13 @@ This app uses Prettier for code formatting with a tab width of 4.
 
 ### Limitations
 
-The given API endpoint is a limiting factor. If there was an additional parameter to return by category_id then more could be done with filtering.
+The given API endpoint is a limiting factor. If there was an additional parameter to return by `category_id` then more could be done with filtering.
 
 ### Future extension / optimisation
 
 Potential improvements:
 
+-   Prevent calling the API while another request is in progress
 -   Additional Redux reducers to support multiple race or game types
 -   End-to-end testing using Cypress / Playwright
 -   Customised 404 handling
