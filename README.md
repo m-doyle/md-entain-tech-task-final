@@ -39,7 +39,7 @@ The application will be running at: http://localhost:3000
 -   Once a race reaches start time it will update to say `Started!` and continue counting down to `-60` seconds. At `-60` (one minute past start) the race is removed from the UI.
 -   Category filter buttons are available for `Greyhound`, `Harness`, and `Horse`. You can remove filtering by clicking an already set filter.
 -   The app will fetch new races whenever the user changes categories, or a race is removed. If no races are available in a category the user will see an error card which will prompt them to manually refresh using a `Try again` button.
--   All application states are handled by the UI: no races state, loading state, error state.
+-   All application states are handled by the UI: no races state, loading state, error state. See screenshots at the bottom of readme.
 
 ### Design Considerations
 
@@ -141,3 +141,17 @@ Nice to have features that didn't make the cut:
 -   Animations on removal or cancellation of a race
 -   Icons for race types for clarity
 -   Loading animation during initial request
+
+### Screenshots
+
+![all](https://github.com/user-attachments/assets/5d712b46-4e33-4479-9efb-04225aa0d5a7)
+*Pictured left: No filter selected (all races). Pictured right: Greyhound filter selected.*
+
+![loading](https://github.com/user-attachments/assets/eadfd596-c848-446e-ad6c-be0fa6793f54)
+*<- Loading state (during intial fetch only)*
+
+![no_races](https://github.com/user-attachments/assets/f6188fd3-b938-4b33-bd1a-1dc672a5811e)
+*<- No races state*
+
+![error](https://github.com/user-attachments/assets/1ae8b766-aa45-4fe7-b60b-48aace62e0db)
+*<- Error state*
