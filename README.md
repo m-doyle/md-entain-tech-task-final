@@ -55,7 +55,7 @@ This app was built as thought it were a real, customer-facing application. I kep
 
 #### Developer experience:
 
-The app is designed to be easily maintable and extendable.
+The app is designed to be easily maintainable and extendable.
 
 -   Separation of concerns:
     -   Redux is used for state management, while UI logic is handled by React components.
@@ -111,9 +111,9 @@ Effectively, comprehensive testing for Redux and smoke-testing for UI components
 
 Currently most of the tests written cover only positive scenarios or anticipated negative scenarios. This is due to time constraints, however if this were a full production application I would encourage the use of negative testing.
 
-However, due to the the strict use of type safety within the application and the testing scenarios covered, I still have high degree of confidence in the testing provided.
+However, due to the strict use of type safety within the application and the testing scenarios covered, I still have high degree of confidence in the testing provided.
 
-There is no end-to-end testing due to the scope of the application. If the app were to be extended in future I would recommend use of Selenium or Playwright to build E2E tests for increased application confidence.
+There is no end-to-end testing due to the scope of the application. If the app were to be extended in future, I would recommend use of Selenium or Playwright to build E2E tests for increased application confidence.
 
 ### Styling and linting
 
@@ -145,13 +145,13 @@ Nice to have features that didn't make the cut:
 ### Screenshots
 
 ![all](https://github.com/user-attachments/assets/5d712b46-4e33-4479-9efb-04225aa0d5a7)
-*Pictured left: No filter selected (all races). Pictured right: Greyhound filter selected.*
+_Pictured left: No filter selected (all races). Pictured right: Greyhound filter selected._
 
 ![loading](https://github.com/user-attachments/assets/eadfd596-c848-446e-ad6c-be0fa6793f54)
-*<- Loading state (during intial fetch only)*
+_<- Loading state (during initial fetch only)_
 
 ![no_races](https://github.com/user-attachments/assets/f6188fd3-b938-4b33-bd1a-1dc672a5811e)
-*<- No races state*
+_<- No races state_
 
 ![error](https://github.com/user-attachments/assets/1ae8b766-aa45-4fe7-b60b-48aace62e0db)
-*<- Error state*
+_<- Error state_
