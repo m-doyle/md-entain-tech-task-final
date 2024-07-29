@@ -63,9 +63,37 @@ The app is designed to be easily maintainable and extendable.
 -   Maintainability:
     -   Type safety with TypeScript, strong test suite, clearly defined Redux actions, and a single reducer all help keep the app maintainable and easily extendable.
 
-## Technical Detail
+# Technical Detail
 
-### Redux
+### ⚠🚨 Correction to Redux usage in regards to best practices:
+
+After finishing development and testing of the technical task I realized some of the Redux patterns I used are no longer the recommended approach. Specifically `connect()`, `mapDispatchToProps()`, and `mapStateToProps()`.
+
+The methods I used are still supported, just no longer recommended which is why the linter didn't complain and alert me. It was only upon some further reading that I realised the [hooks API](https://react-redux.js.org/api/hooks) is now the recommended default approach.
+
+Unfortunately, the React codebases I work in daily were created _before_ the introduction of Redux hooks 5 years ago in `v7.1.0`, so I was not immediately aware.
+
+This approach was recommended in older versions of Redux. However, since `v7.1.0`, the recommended way to interact with Redux state has shifted towards using `useSelector` and `useDispatch` hooks.
+
+I apologize for the oversight and thought it would be best to raise it here.
+
+### Changes to Redux
+
+If I had more time to refine the task, I would refactor the connected components to use hooks.
+
+I would remove `connect()` and refactor connected components by:
+
+-   Replacing `mapDispatchToProps()` with `useDispatch()` + `action` creators for dispatching actions.
+-   Replacing `mapStateToProps()` with `useSelector()` for selective rendering and allowing any return type.
+
+Benefits from this refactoring would include:
+
+-   Project better aligns with the modern React paradigm
+-   Cleaner code with less boilerplate
+-   Slightly better performance with `useSelector`
+-   Hooks allow for better optimization, such as selective rendering and memoization
+
+## Current Redux Implementation
 
 Redux and Redux Thunk are used to maintain application state. Actions are made with action creators, and are distinct, separate, and strongly typed to ensure clarity and increase confidence.
 
@@ -124,6 +152,12 @@ This app uses Prettier for code formatting with a tab width of 4.
 ### Limitations
 
 The given API endpoint is a limiting factor. If there was an additional parameter to return by `category_id` then more could be done with filtering.
+
+### Known issues
+
+-   Update Redux to use hooks API
+-   Prevent multiple API calls being made simultaneously. This can be done by switching categories quickly.
+    -   This fix would require blocking calls while the application is in a loading or fetching state.
 
 ### Future extension / optimisation
 
